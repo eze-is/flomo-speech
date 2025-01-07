@@ -16,25 +16,20 @@ function App() {
   const handleOptimize = async () => {
     setIsProcessing(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL || ''}/optimize`, {
+      const response = await fetch('/api/optimize-text', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           text: transcribedText,
+          mode: 'correct',
         }),
       });
-
-      if (!response.ok) {
-        throw new Error('优化失败');
-      }
-
       const data = await response.json();
-      setOptimizedText(data.optimizedText);
+      setOptimizedText(data.text);
     } catch (error) {
       console.error('Error optimizing text:', error);
-      alert('文本优化失败，请确保已配置豆包 API Key');
     } finally {
       setIsProcessing(false);
     }
@@ -43,7 +38,7 @@ function App() {
   const handleSyncToFlomo = async () => {
     setIsProcessing(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL || ''}/sync-to-flomo`, {
+      const response = await fetch('/api/sync-to-flomo', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

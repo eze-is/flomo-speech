@@ -1,75 +1,31 @@
-# Flomo Speech
+# Flomo Speech Assistant
 
-一个支持语音输入并同步到 Flomo 的渐进式 Web 应用（PWA）。
-
-## 功能特点
-
-- 实时语音转文字
-- AI 文本优化（基于豆包 API）
-- 同步到 Flomo
-- 优雅的 UI 设计
-- 支持深色模式
-- PWA 支持
+一个基于语音识别的笔记助手，支持实时语音转文字并通过豆包 API 进行智能优化。
 
 ## 技术栈
 
-- 前端：React + Vite + TailwindCSS
-- 后端：Node.js + Express
-- 部署：Vercel
+### 前端
+- React.js
+- Tailwind CSS
+- Web Speech API
+- PWA 支持
 
-## 本地开发
+### 后端
+- Node.js
+- Express.js
+- 豆包 API 集成
 
-1. 克隆仓库：
-   ```bash
-   git clone https://github.com/yourusername/flomo-speech.git
-   cd flomo-speech
-   ```
+## 功能特性
 
-2. 安装依赖：
-   ```bash
-   npm install
-   cd client && npm install
-   cd ../server && npm install
-   ```
+1. 语音转文字
+   - 实时语音识别
+   - 动态显示转写内容
+   - 自动换行处理
 
-3. 创建环境变量文件：
-   ```bash
-   # 在 server 目录下创建 .env 文件
-   PORT=3001
-   NODE_ENV=development
-   ```
-
-4. 启动开发服务器：
-   ```bash
-   # 在根目录运行
-   npm run dev
-   ```
-
-## 部署
-
-本项目使用 Vercel 进行部署。只需要：
-
-1. Fork 这个仓库
-2. 在 Vercel 中导入项目
-3. 配置环境变量
-4. 部署！
-
-## 配置
-
-在使用之前，需要配置：
-
-1. 豆包 API Key（用于 AI 文本优化）
-2. Flomo API（用于同步笔记）
-
-这些配置可以在应用的设置面板中完成。
-
-## 贡献
-
-欢迎提交 Issue 和 Pull Request！
-
-## 许可
-
-MIT License
+2. AI 文本优化
+   - 集成豆包 API
+   - 支持多种优化模式（纠错、润色、总结）
+   - 可配置的 API Key
 
 ## 项目结构
 
