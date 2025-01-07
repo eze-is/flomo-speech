@@ -12,7 +12,7 @@ const Settings = ({ className = '', onClose }) => {
   useEffect(() => {
     const loadSettings = async () => {
       try {
-        const response = await fetch('/api/settings');
+        const response = await fetch(`${process.env.REACT_APP_API_URL || ''}/settings`);
         if (response.ok) {
           const data = await response.json();
           setSettings(prevSettings => ({
@@ -33,7 +33,7 @@ const Settings = ({ className = '', onClose }) => {
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const response = await fetch('/api/settings', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL || ''}/settings`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
